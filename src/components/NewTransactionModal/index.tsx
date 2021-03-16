@@ -55,7 +55,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: INewTransactionM
         <input
           placeholder="Título"
           value={data.title}
-          onClick={event => setData({
+          onChange={event => setData({
             ...data,
             title: event.currentTarget.value,
           })}
@@ -64,7 +64,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: INewTransactionM
           type="number"
           placeholder="Valor"
           value={data.value === 0 ? undefined : data.value}
-          onClick={event => setData({
+          onChange={event => setData({
             ...data,
             value: Number(event.currentTarget.value),
           })}
@@ -92,7 +92,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: INewTransactionM
         <input
           placeholder="Categoria"
           value={data.category}
-          onClick={event => setData({
+          onChange={event => setData({
             ...data,
             category: event.currentTarget.value,
           })}
