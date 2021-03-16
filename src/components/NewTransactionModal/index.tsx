@@ -21,6 +21,8 @@ interface IData {
   category: string;
 }
 
+Modal.setAppElement("#root");
+
 export function NewTransactionModal({ isOpen, onRequestClose }: INewTransactionModal) {
   const [data, setData] = useState<IData>({
     title: "",
