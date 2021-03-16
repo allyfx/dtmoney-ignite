@@ -1,4 +1,5 @@
-import { useState, FormEvent, useContext } from "react";
+import { useState, FormEvent } from "react";
+import { useTransactions } from "../../hooks/useTransactions";
 import Modal from "react-modal";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
@@ -8,7 +9,6 @@ import {
   TransactionTypeContainer,
   RadioBox,
 } from "./styles";
-import { TransactionsContext } from "../../TransactionsContext";
 
 interface INewTransactionModal {
   isOpen: boolean;
@@ -30,7 +30,7 @@ const INITIAL_DATA = {
 };
 
 export function NewTransactionModal({ isOpen, onRequestClose }: INewTransactionModal) {
-  const { createTransaction } = useContext(TransactionsContext);
+  const { createTransaction } = useTransactions();
   const [data, setData] = useState<IData>(INITIAL_DATA);
   const [type, setType] = useState("deposit");
   const handleCreateNewTransaction = async (event: FormEvent) => {
